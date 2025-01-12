@@ -23,10 +23,7 @@ button {
   cursor: pointer;
 }
 
-button.primary {
-  background-color: var(--green);
-  color: white;
-}
+
 
 .app {
   margin: 0 auto;
@@ -97,20 +94,47 @@ input:focus {
   border-bottom: 2px solid var(--green);
 }
 
-.cards {
-  list-style: none;
+
+
+
+
+.card img {
+  width: 240px;
+  height:240px;
+  box-shadow: 1px 1px 1px rgba(0%, 0%, 0%, 0.1);
+ 
 }
 
 .card {
-  margin: 1rem;
+  display: inline-block;
+  padding:25px;
+  margin-right: 75px;
 }
 
-.card img {
-  width: 100%;
+
+h4{
+  
+  font-size: smaller;
+  
 }
 
+p{
+  
+  font-size: smaller;
+}
+  
 .card button {
+  
   margin-top: 0.5rem;
+}
+
+button.primary {
+  background-color: var(--green);
+  color: white;
+  margin-right: 30px;
+  margin-top:0px;
+  margin-bottom:10px;
+  font-size: x-small;
 }
 
 @media (min-width: 768px) {

@@ -1,75 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import PlantPage from "./PlantPage";
-import NewPlantForm from "./NewPlantForm";
+import PlantCard from "./PlantCard";
 import PlantList from "./PlantList";
 
+
+
 function App() {
-  const [plants, setPlants] = useState([
-    {
-      id: 1,
-      name: "Aloe",
-      image: "/images/aloe.jpg",
-      price: 15.99
-    },
-    {
-      id: 2,
-      name: "ZZ Plant",
-      image: "/images/zz-plant.jpg",
-      price: 25.98
-    },
-    {
-      id: 3,
-      name: "Pilea peperomioides",
-      image: "/images/pilea.jpg",
-      price: 5.99
-    },
-    {
-      id: 4,
-      name: "Pothos",
-      image: "/images/pothos.jpg",
-      price: 12.11
-    },
-    {
-      id: 5,
-      name: "Jade",
-      image: "/images/jade.jpg",
-      price: 10.37
-    },
-    {
-      id: 6,
-      name: "Monstera Deliciosa",
-      image: "/images/monstera.jpg",
-      price: 25.99
-    },
-    {
-      id: 7,
-      name: "Fiddle Leaf Fig",
-      image: "/images/fiddle-leaf-fig.jpg",
-      price: 55
-    }
-  ]);
+  const [plants, setPlants] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:6001/plants")
+      .then((r) => r.json())
+      .then(setPlants);
+  }, []);
 
-  const handleAddPlant = (formData) => {
-    const newPlant = {
-      id: plants.length + 1, 
-      ...formData
-    };
-    setPlants([...plants, newPlant]);
-  };
+  const addPlant = (plant) => {
+    setPlants([...plants, plant]);
+  }
 
+  const [search, setSearch] = useState("")
   return (
     <div className="app">
       <Header />
-      <main>
-        
-        <NewPlantForm onAddPlant={handleAddPlant} />
-        <h3>Search Plants:</h3> 
-        <PlantList plants={plants} />
-        <PlantPage />
-      </main>
+      <PlantPage addPlant={addPlant} setSearch={setSearch} />
+      <ul className="plant-container">
+        {plants.filter(plant => plant.name.includes(search))
+          .map(plant => {
+          return (<PlantCard id={plant.id} img={plant.image} name={plant.name} price={plant.price} />)
+        })}
+      {/* <PlantCard id={1} picture={'./images/aloe.jpg'} name="Aloe" price={15.99} isInStock={true}/> 
+      <PlantCard id={2} picture={'./images/zz-plant.jpg'} name="ZZ-PLant" price={25.98} isInStock={true}/>
+      <PlantCard id={3} picture={'./images/aloe.jpg'} name="Pilea Peperomioides" price={5.99} isInStock={true}/>
+      <PlantCard id={4} picture={'./images/aloe.jpg'} name="Pothos" price={12.11} isInStock={true}/> 
+      <PlantCard id={5} picture={'./images/aloe.jpg'} name="Jade" price={10.37} isInStock={true}/>
+      <PlantCard id={6} picture={'./images/aloe.jpg'} name="Monstera Deliciosa" price={25.99} isInStock={true}/>
+      <PlantCard id={7} picture={'./images/aloe.jpg'} name="Fiddle-Leaf Fig" price={55} isInStock={true}/> */}
+      
+      </ul>
+      <PlantList search={search}/>
     </div>
   );
+  
 }
 
 export default App;
