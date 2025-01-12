@@ -8,7 +8,7 @@ function Search(props) {
         type="text"
         id="search"
         placeholder="Type a name to search..."
-        onChange={(e) => props.setSearch(e.target.value.toLowerCase())}
+        onChange={(e) => props.setSearch(e.target.value)}
       />
     </div>
   );
