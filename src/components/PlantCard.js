@@ -1,48 +1,46 @@
-import React from "react";
-import {useState} from 'react';
-// import aloePic from './images/aloe.jpg'
-import calatheaPic from './images/calathea.jpg'
-import fiddlePic from './images/fiddle-leaf-fig.jpg'
-
+import React, { useState } from "react";
 
 function PlantCard(props) {
+  const [status, setStatus] = useState('inStock');
 
-  const [isInStock, setIsInStock] = useState(true);
-
- 
-
-  const toggleInStockStatus = () => {
-    setIsInStock(!isInStock);
+  const toggleStatus = () => {
+    if (status === 'inStock') {
+      setStatus('outOfStock');
+    } else if (status === 'outOfStock') {
+      setStatus('soldOut');
+    } else {
+      setStatus('inStock');
+    }
   }
 
   function getStockButton() {
-    if(isInStock){
-      return (<button className="primary" onClick={toggleInStockStatus}>In Stock  </button>)
-    } else {
-      return(<button className="secondary" onClick={toggleInStockStatus}>Out of Stock </button>)
+    switch (status) {
+      case 'inStock':
+        return (<button className="primary" onClick={toggleStatus}>In Stock</button>);
+      case 'outOfStock':
+        return (<button className="secondary" onClick={toggleStatus}>Out of Stock</button>);
+      case 'soldOut':
+        return (<button className="sold-out" onClick={toggleStatus}>Sold Out</button>);
+      default:
+        return null;
     }
-}  
+  }
+
   return (
-      
-    <li className="card" data-test id="plant-item">
+    <li className="card" data-testid="plant-item">
       <img src={props.img} alt="plant name" /> 
       <h4>{props.name}</h4>
-      <p>Price:{props.price}</p>
-
-      
-        
+      <p>Price: {props.price}</p>
       {getStockButton()}
-        
-      </li>
-    
+    </li>
   );
-
 }
 
-
-
-PlantCard.defaultProps= {
+PlantCard.defaultProps = {
   isInStock: true,
 }
 
 export default PlantCard;
+
+
+

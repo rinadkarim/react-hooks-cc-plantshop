@@ -24,8 +24,9 @@ function App() {
       <Header />
       <PlantPage addPlant={addPlant} setSearch={setSearch} />
       <ul className="plant-container">
-        {plants.filter(plant => plant.name.includes(search))
-          .map(plant => {
+      {plants
+        .filter(plant => plant.name.toLowerCase().includes(search.toLowerCase()))
+        .map(plant => {
           return (<PlantCard id={plant.id} img={plant.image} name={plant.name} price={plant.price} />)
         })}
       {/* <PlantCard id={1} picture={'./images/aloe.jpg'} name="Aloe" price={15.99} isInStock={true}/> 

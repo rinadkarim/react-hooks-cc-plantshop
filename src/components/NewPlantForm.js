@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 function NewPlantForm(props) {
   
-  //const[plants, setPlants] = useState(["Aloe", "ZZ-PLant", "Pilea Peperomioides", "Pothos", "Jade", "Monstera Deliciosa", "Fiddle-Leaf Fig"]);
+ 
 
   const [formData, setFormData] = useState({
     name: '',
@@ -24,12 +24,11 @@ function NewPlantForm(props) {
        const newPlant = {
         ...formData,
        }
-        // name: document.getElementById("plantInput").value;
-      //  document.getElementById("plantInput").value = "";
+       
       fetch("http://localhost:6001/plants", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "Application/JSON",
         },
         body: JSON.stringify(newPlant),
       })

@@ -8,10 +8,11 @@ function Search(props) {
         type="text"
         id="search"
         placeholder="Type a name to search..."
-        onChange={(e) => props.setSearch(e.target.value)}
+        onChange={(e) => props.setSearch(e.target.value)} 
       />
     </div>
   );
 }
 
 export default Search;
+
