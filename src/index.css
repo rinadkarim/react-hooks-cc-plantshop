@@ -137,6 +137,18 @@ button.primary {
   font-size: x-small;
 }
 
+.delete {
+  background-color: var(--green);
+  color: white;
+  margin-right: 5px;
+  margin-top:0px;
+  margin-bottom:10px;
+  font-size: x-small;
+}
+
+
+
+
 @media (min-width: 768px) {
   .cards {
     display: flex;

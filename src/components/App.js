@@ -18,6 +18,10 @@ function App() {
     setPlants([...plants, plant]);
   }
 
+  const deletePlant = (id) => {
+    setPlants(plants.filter((plant) => plant.id !== id));
+  };
+
   const [search, setSearch] = useState("")
   return (
     <div className="app">
@@ -27,16 +31,8 @@ function App() {
       {plants
         .filter(plant => plant.name.toLowerCase().includes(search.toLowerCase()))
         .map(plant => {
-          return (<PlantCard id={plant.id} img={plant.image} name={plant.name} price={plant.price} />)
+          return (<PlantCard key={plant.id} id={plant.id} img={plant.image} name={plant.name} price={plant.price} deletePlant={deletePlant}/>)
         })}
-      {/* <PlantCard id={1} picture={'./images/aloe.jpg'} name="Aloe" price={15.99} isInStock={true}/> 
-      <PlantCard id={2} picture={'./images/zz-plant.jpg'} name="ZZ-PLant" price={25.98} isInStock={true}/>
-      <PlantCard id={3} picture={'./images/aloe.jpg'} name="Pilea Peperomioides" price={5.99} isInStock={true}/>
-      <PlantCard id={4} picture={'./images/aloe.jpg'} name="Pothos" price={12.11} isInStock={true}/> 
-      <PlantCard id={5} picture={'./images/aloe.jpg'} name="Jade" price={10.37} isInStock={true}/>
-      <PlantCard id={6} picture={'./images/aloe.jpg'} name="Monstera Deliciosa" price={25.99} isInStock={true}/>
-      <PlantCard id={7} picture={'./images/aloe.jpg'} name="Fiddle-Leaf Fig" price={55} isInStock={true}/> */}
-      
       </ul>
       <PlantList search={search}/>
     </div>
