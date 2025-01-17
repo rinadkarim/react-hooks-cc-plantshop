@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import PlantPage from "./PlantPage";
 import PlantCard from "./PlantCard";
-import PlantList from "./PlantList";
+
 
 
 
@@ -19,8 +19,14 @@ function App() {
   }
 
   const deletePlant = (id) => {
-    setPlants(plants.filter((plant) => plant.id !== id));
-  };
+    fetch(`http://localhost:6001/plants/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(response => response.json())
+    .then(response => setPlants(plants.filter((plant) => plant.id !== id)));
+    };
 
   const [search, setSearch] = useState("")
   return (
@@ -34,7 +40,7 @@ function App() {
           return (<PlantCard key={plant.id} id={plant.id} img={plant.image} name={plant.name} price={plant.price} deletePlant={deletePlant}/>)
         })}
       </ul>
-      <PlantList search={search}/>
+      
     </div>
   );
   
