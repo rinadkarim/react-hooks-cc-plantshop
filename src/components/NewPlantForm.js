@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from 'react';
 
-function NewPlantForm(props) {
+function NewPlantForm({addPlant}) {
   
  
 
@@ -33,7 +33,7 @@ function NewPlantForm(props) {
         body: JSON.stringify(newPlant),
       })
         .then((r) => r.json())
-        .then((p) => props.addPlant(p));
+        .then((p) => addPlant(p));
        return false;
   };
 

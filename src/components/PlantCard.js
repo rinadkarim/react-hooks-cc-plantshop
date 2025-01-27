@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-function PlantCard(props) {
+function PlantCard({id,img,name,price, deletePlant}) {
   const [status, setStatus] = useState("inStock");
-  const [newPrice, setNewPrice] = useState(props.price);
+  const [newPrice, setNewPrice] = useState(price);
  
 
   const toggleStatus = () => {
@@ -22,7 +22,7 @@ function PlantCard(props) {
   const handleUpdatePrice = async () => {
     const updatedPlant = { price: parseFloat(newPrice) };
     
-    const response = await fetch(`http://localhost:6001/plants/${props.id}`, {
+    const response = await fetch(`http://localhost:6001/plants/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function PlantCard(props) {
   
 
   const handleDelete = (event) => {
-    props.deletePlant(props.id);
+    deletePlant(id);
   }
     
 
@@ -72,10 +72,10 @@ function PlantCard(props) {
 
   return (
     <li className="card" data-testid="plant-item">
-      <img src={props.img} alt={props.name} />
-      <h4>{props.name}</h4>
+      <img src={img} alt={name} />
+      <h4>{name}</h4>
       <p>
-        Price: {props.price}<br/>
+        Price: {price}<br/>
         <input
           type="number"
           value={newPrice}
@@ -85,7 +85,7 @@ function PlantCard(props) {
       </p>
       {getStockButton()}<br></br>
       <button className="update" onClick={handleUpdatePrice}>Update Price</button>
-      <div key={props.id}>
+      <div key={id}>
       <button className="delete" onClick={handleDelete}>
         Delete
       </button>

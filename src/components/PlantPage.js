@@ -2,11 +2,11 @@ import React from "react";
 import NewPlantForm from "./NewPlantForm";
 import Search from "./Search";
 
-function PlantPage(props) {
+function PlantPage({addPlant, setSearch}) {
   return (
     <main>
-      <NewPlantForm addPlant={props.addPlant} />
-      <Search setSearch={props.setSearch} />
+      <NewPlantForm addPlant={addPlant} />
+      <Search setSearch={setSearch} />
     </main>
   );
 }
