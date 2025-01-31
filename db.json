@@ -1,46 +1,70 @@
 {
   "plants": [
     {
-      "id": "1",
-      "name": "Aloe",
-      "image": "./images/aloe.jpg",
-      "price": 18
-    },
-    {
-      "id": "2",
-      "name": "ZZ Plant",
-      "image": "./images/zz-plant.jpg",
-      "price": 25.98
-    },
-    {
-      "id": "3",
-      "name": "Pilea peperomioides",
-      "image": "./images/pilea.jpg",
-      "price": 5.99
-    },
-    {
       "id": "4",
       "name": "Pothos",
       "image": "./images/pothos.jpg",
-      "price": 12.11
-    },
-    {
-      "id": "5",
-      "name": "Jade",
-      "image": "./images/jade.jpg",
-      "price": 10.37
-    },
-    {
-      "id": "7",
-      "name": "Fiddle Leaf Fig",
-      "image": "./images/fiddle-leaf-fig.jpg",
-      "price": 61
+      "price": 18
     },
     {
       "name": "Aloe",
       "image": "./images/pothos.jpg",
       "price": 8,
       "id": "FHZIsYz"
+    },
+    {
+      "name": "aloe",
+      "image": "./images/pothos.jpg",
+      "price": "2",
+      "id": "mZ4nW2n"
+    },
+    {
+      "name": "jade",
+      "image": "./images/jade.jpg",
+      "price": "25",
+      "id": "gzcpBf7"
+    },
+    {
+      "name": "jade",
+      "image": "./images/jade.jpg",
+      "price": "25",
+      "id": "PMev9kv"
+    },
+    {
+      "name": "jade",
+      "image": "./images/pothos.jpg",
+      "price": "100",
+      "id": "FLFSHr2"
+    },
+    {
+      "name": "aloe",
+      "image": "./images/pothos.jpg",
+      "price": "12",
+      "id": "cqQqezz"
+    },
+    {
+      "name": "jade",
+      "image": "./images/pothos.jpg",
+      "price": "35",
+      "id": "INiUYYB"
+    },
+    {
+      "name": "Aloe",
+      "image": "./images/pothos.jpg",
+      "price": "0.05",
+      "id": "yp8wLT1"
+    },
+    {
+      "name": "Aloe",
+      "image": "./images/jade.jpg",
+      "price": "200",
+      "id": "UdgZ854"
+    },
+    {
+      "name": "jade",
+      "image": "./images/jade.jpg",
+      "price": "300",
+      "id": "LoQd0zd"
     }
   ]
 }

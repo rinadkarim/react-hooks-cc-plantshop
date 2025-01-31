@@ -3,8 +3,6 @@ import {useState} from 'react';
 
 function NewPlantForm({addPlant}) {
   
- 
-
   const [formData, setFormData] = useState({
     name: '',
     image: '',

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function PlantCard({id,img,name,price, deletePlant}) {
   const [status, setStatus] = useState("inStock");
   const [newPrice, setNewPrice] = useState(price);
- 
+ console.log(img);
 
   const toggleStatus = () => {
     if (status === "inStock") {

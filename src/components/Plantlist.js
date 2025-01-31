@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import PlantPage from "./PlantPage";
+import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 
 
+function Plantlist() {
 
-
-function App() {
-  const [plants, setPlants] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:6001/plants")
-      .then((r) => r.json())
-      .then(setPlants);
-  }, []);
+const [plants, setPlants] = useState([]);
+const [search, setSearch] = useState([]);
+                 
 
   const addPlant = (plant) => {
     setPlants([...plants, plant]);
@@ -28,22 +22,17 @@ function App() {
     .then(response => setPlants(plants.filter((plant) => plant.id !== id)));
     };
 
-  const [search, setSearch] = useState("")
-  return (
-    <div className="app">
-      <Header />
-      <PlantPage addPlant={addPlant} setSearch={setSearch} />
-      <ul className="plant-container">
+
+        
+return (
+    <ul className="plant-container">
       {plants
         .filter(plant => plant.name.toLowerCase().includes(search.toLowerCase()))
         .map(plant => {
           return (<PlantCard key={plant.id} id={plant.id} img={plant.image} name={plant.name} price={plant.price} deletePlant={deletePlant}/>)
         })}
       </ul>
-      
-    </div>
-  );
-  
-}
-
-export default App;
+);
+    }
+          
+export default Plantlist;
