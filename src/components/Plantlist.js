@@ -2,28 +2,9 @@ import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 
 
-function Plantlist() {
-
-const [plants, setPlants] = useState([]);
-const [search, setSearch] = useState([]);
-                 
-
-  const addPlant = (plant) => {
-    setPlants([...plants, plant]);
-  }
-
-  const deletePlant = (id) => {
-    fetch(`http://localhost:6001/plants/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(response => response.json())
-    .then(response => setPlants(plants.filter((plant) => plant.id !== id)));
-    };
+function Plantlist({search, plants, deletePlant}) {
 
 
-        
 return (
     <ul className="plant-container">
       {plants

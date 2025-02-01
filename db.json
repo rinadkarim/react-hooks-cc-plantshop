@@ -1,40 +1,10 @@
 {
   "plants": [
     {
-      "id": "4",
-      "name": "Pothos",
-      "image": "./images/pothos.jpg",
-      "price": 18
-    },
-    {
-      "name": "Aloe",
-      "image": "./images/pothos.jpg",
-      "price": 8,
-      "id": "FHZIsYz"
-    },
-    {
       "name": "aloe",
       "image": "./images/pothos.jpg",
       "price": "2",
       "id": "mZ4nW2n"
-    },
-    {
-      "name": "jade",
-      "image": "./images/jade.jpg",
-      "price": "25",
-      "id": "gzcpBf7"
-    },
-    {
-      "name": "jade",
-      "image": "./images/jade.jpg",
-      "price": "25",
-      "id": "PMev9kv"
-    },
-    {
-      "name": "jade",
-      "image": "./images/pothos.jpg",
-      "price": "100",
-      "id": "FLFSHr2"
     },
     {
       "name": "aloe",
@@ -65,6 +35,54 @@
       "image": "./images/jade.jpg",
       "price": "300",
       "id": "LoQd0zd"
+    },
+    {
+      "name": "aloe",
+      "image": "./images/pothos.jpg",
+      "price": "6",
+      "id": "dDAWLCF"
+    },
+    {
+      "name": "pothos",
+      "image": "./images/pothos.jpg",
+      "price": "6",
+      "id": "xasbxbX"
+    },
+    {
+      "name": "pothos",
+      "image": "./images/pothos.jpg",
+      "price": "6",
+      "id": "YIrzNBe"
+    },
+    {
+      "name": "pothos",
+      "image": "./images/pothos.jpg",
+      "price": "6",
+      "id": "mGr7uGS"
+    },
+    {
+      "name": "pothos",
+      "image": "./images/pothos.jpg",
+      "price": "6",
+      "id": "9rDXJQv"
+    },
+    {
+      "name": "pothos",
+      "image": "./images/pothos.jpg",
+      "price": "6",
+      "id": "Y3OQwXY"
+    },
+    {
+      "name": "Pothos",
+      "image": "./images/aloe.jpg",
+      "price": "15",
+      "id": "aYZnGIm"
+    },
+    {
+      "name": "Aloe",
+      "image": "./images/aloe.jpg",
+      "price": "14",
+      "id": "hwA0aAj"
     }
   ]
 }
