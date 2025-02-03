@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function PlantCard({id,img,name,price, deletePlant}) {
+function PlantCard({id,img,name,price, deletePlant, updatePlant}) {
   const [status, setStatus] = useState("inStock");
   const [newPrice, setNewPrice] = useState(price);
  console.log(img);
@@ -32,7 +32,7 @@ function PlantCard({id,img,name,price, deletePlant}) {
 
     if (response.ok) {
       const updatedData = await response.json();
-      alert(`Price updated to $${updatedData.price}`);
+      updatePlant(updatedData);
     } else {
       alert("Failed to update price");
     }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 
 
-function Plantlist({search, plants, deletePlant}) {
+function Plantlist({search, plants, deletePlant, updatePlant}) {
 
 
 return (
@@ -10,7 +10,7 @@ return (
       {plants
         .filter(plant => plant.name.toLowerCase().includes(search.toLowerCase()))
         .map(plant => {
-          return (<PlantCard key={plant.id} id={plant.id} img={plant.image} name={plant.name} price={plant.price} deletePlant={deletePlant}/>)
+          return (<PlantCard key={plant.id} id={plant.id} img={plant.image} name={plant.name} price={plant.price} deletePlant={deletePlant} updatePlant={updatePlant}/>)
         })}
       </ul>
 );

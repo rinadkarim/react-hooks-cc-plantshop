@@ -19,6 +19,17 @@ const [search, setSearch] = useState("")
     setPlants([...plants, plant]);
   }
 
+  const updatePlant= (newPlant) => {
+    const newPlants = [...plants].map((plant) =>  {
+      if(plant.id === newPlant.id) {
+        return newPlant;
+      } else {
+        return plant;
+      }
+    });
+    setPlants([...newPlants]);
+  }
+
   const deletePlant = (id) => {
     fetch(`http://localhost:6001/plants/${id}`, {
       method: "DELETE",
@@ -35,7 +46,7 @@ const [search, setSearch] = useState("")
     <main>
       <NewPlantForm addPlant={addPlant} />
       <Search setSearch={setSearch} />
-      <Plantlist search={search} plants={plants} deletePlant={deletePlant}/>
+      <Plantlist search={search} plants={plants} deletePlant={deletePlant} updatePlant={updatePlant}/>
     </main>
   );
 }
